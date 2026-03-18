@@ -22,8 +22,8 @@ async function login() {
         const response = await client.post(
             "https://tronpick.io/login.php",
             new URLSearchParams({
-                email: "TON_EMAIL",
-                password: "TON_MOT_DE_PASSE"
+                email: "rivoniainafinoana123@gmail.com",
+                password: "Finoana123."
             }),
             {
                 headers: {
