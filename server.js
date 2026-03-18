@@ -1,4 +1,5 @@
 const express = require("express");
+const axios = require("axios");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -12,15 +13,21 @@ app.get("/", (req, res) => {
 function startBot() {
     console.log("Bot démarré...");
 
-    setInterval(() => {
+    setInterval(async () => {
         console.log("Bot travaille... " + new Date().toLocaleTimeString());
 
-        // 👉 Ici on mettra ton vrai script plus tard
+        try {
+            // Remplace l'URL par l'API claim réelle de Tronpick
+            const response = await axios.get('https://tronpick.io/claim.php');
+            console.log("Réponse Tronpick :", response.status);
+        } catch (error) {
+            console.log("Erreur Tronpick :", error.message);
+        }
 
     }, 60000); // toutes les 60 secondes
 }
 
-// lancer le bot
+// Lancer le bot
 startBot();
 
 app.listen(PORT, () => {
